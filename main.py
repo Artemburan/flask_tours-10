@@ -31,6 +31,11 @@ def get_tour(tour_id):
     tour=data.tours.get(tour_id)
     return render_template("tour.html", tour_id=tour_id, tour=tour)
 
+@app.get("/buy_tour/<int:tour_id>")
+def buy_tour(tour_id):
+    tour = data.tours.get(tour_id)
+    return f"Ви успішно купили тур '{tour['title']}'. Дякуюємо"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
