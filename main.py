@@ -22,12 +22,14 @@ def index():
 
 @app.get("/departure/<dep_eng>/")
 def departure(dep_eng):
-    return render_template("departure.html")
+    tours = {tour_id: tour for tour_id, tour in data.tours.items() if tour["departure"] == dep_eng}
+    return render_template("departure.html", tours=tours)
 
 
-@app.get("/tour/")
-def tour():
-    return render_template("tour.html")
+@app.get("/tour/<int:tour_id>")
+def get_tour(tour_id):
+    tour=data.tours.get(tour_id)
+    return render_template("tour.html", tour_id=tour_id, tour=tour)
 
 
 if __name__ == "__main__":
