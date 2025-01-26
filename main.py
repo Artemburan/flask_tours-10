@@ -23,7 +23,7 @@ def index():
 @app.get("/departure/<dep_eng>/")
 def departure(dep_eng):
     tours = {tour_id: tour for tour_id, tour in data.tours.items() if tour["departure"] == dep_eng}
-    return render_template("departure.html", tours=tours)
+    return render_template("departure.html", tours=tours, dep_eng=dep_eng)
 
 
 @app.get("/tour/<int:tour_id>")

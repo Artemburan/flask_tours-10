@@ -2,8 +2,8 @@
 
 {% block content %}
   <main class="container mt-3">
-    <h1 class="display-5 mt-4">Вирушаємо з Києва</h1>
-    <p class="mb-4">Знайдено 15 турів</p>
+    <h1 class="display-5 mt-4">Вирушаємо {{ departures[dep_eng] }}</h1>
+    <p class="mb-4">Знайдено {{ tours|length }} ту(а)рів</p>
     <!-- CARDS -->
     <div class="row mt-5">
 
