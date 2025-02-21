@@ -18,7 +18,6 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = binascii.hexlify(os.urandom(24))
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_URI")
-db.init_app(app)
 login_manager = LoginManager()
 login_manager.login_message = "Для можливості бронювання увійдіть у систему"
 login_manager.login_view = "login"
@@ -26,9 +25,9 @@ login_manager.init_app(app)
 migrate = Migrate(app, db)
 
 
-# with app.app_context():
-#     db.create_all()
-#     # data_to_db()
+#with app.app_context():
+#    db.create_all()
+#    # data_to_db()
 
 
 @app.context_processor
