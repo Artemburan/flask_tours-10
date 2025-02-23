@@ -26,9 +26,9 @@ login_manager.init_app(app)
 migrate = Migrate(app, db)
 
 
-with app.app_context():
-    db.create_all()
-    data_to_db()
+#with app.app_context():
+#    db.create_all()
+#    data_to_db()
 
 
 @app.context_processor
